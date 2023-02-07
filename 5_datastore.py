@@ -3,7 +3,7 @@
 # for each space represented as rows. Name your file 'retail_space.csv.
 
 
-'''
+"""
 Your final output should look like:
 
 room-number,use,sq-ft,price
@@ -13,37 +13,36 @@ room-number,use,sq-ft,price
 103,examination,125,150
 104,office,150,100
 
-'''
+"""
 
 
-
-
-datastore = { "medical":[
-      { "room-number": 100,
-        "use": "reception",
-        "sq-ft": 50,
-        "price": 75
-      },
-      { "room-number": 101,
-        "use": "waiting",
-        "sq-ft": 250,
-        "price": 75
-      },
-      { "room-number": 102,
-        "use": "examination",
-        "sq-ft": 125,
-        "price": 150
-      },
-      { "room-number": 103,
-        "use": "examination",
-        "sq-ft": 125,
-        "price": 150
-      },
-      { "room-number": 104,
-        "use": "office",
-        "sq-ft": 150,
-        "price": 100
-      }
-
-      ]
+datastore = {
+    "medical": [
+        {"room-number": 100, "use": "reception", "sq-ft": 50, "price": 75},
+        {"room-number": 101, "use": "waiting", "sq-ft": 250, "price": 75},
+        {"room-number": 102, "use": "examination", "sq-ft": 125, "price": 150},
+        {"room-number": 103, "use": "examination", "sq-ft": 125, "price": 150},
+        {"room-number": 104, "use": "office", "sq-ft": 150, "price": 100},
+    ]
 }
+
+# import CSV library
+import csv
+
+# Create a new file to write info about real estate space for doctor's office
+retail_space = open("retail_space.csv", "w", newline="")
+
+# Create a writer to write into the retail_space file
+retail_space_writer = csv.writer(retail_space)
+
+# Write the Header Row of Retail-Space file
+# retail_space_writer.writerow(["Room-Number, Use, Sq-Ft, Price"])
+keys = datastore["medical"][0]
+retail_space_writer.writerow(keys)
+
+# Create a for loop to write into the CSV file, the information in the dictionary
+for d in range(len(datastore["medical"])):
+    # Write the Row of Retail-Space file
+    retail_space_writer.writerow(datastore["medical"][d].values())
+
+retail_space.close()

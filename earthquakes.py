@@ -52,7 +52,7 @@ EQ_count = eq_data["metadata"]["count"]
 
 # Task 1: print out the number of earthquakes
 print(
-    f"There are {EQ_count} earthquakes in the eq_data.json file as found in the metadata->count"
+    f"\nThere are {EQ_count} earthquakes in the eq_data.json file as found in the metadata->count"
 )
 
 # Task 2: iterate through the dictionary and extract the location, magnitude,
